@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://u.cubeupload.com/almanaclmao337/zz.png">
+
+    <title>Dashboard | U-Trace</title>
+
+    <!--- Locals: CSS --->
+    <link rel="stylesheet" href="/public/css/main.css">
+    <link rel="stylesheet" href="/public/css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+    
+    <!--- JSPDF | JS Dependencies --->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.0.5/jspdf.plugin.autotable.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+
+    <!--- Bootstrap 5: CSS Dependencies --->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="node_modules/mdbootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/mdbootstrap/css/mdb.min.css">
+    <link rel="stylesheet" href="node_modules/mdbootstrap/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body id="body-pd">
+    <!-- Bootstrap Sidebar -->
+    <header class="header" id="header">
+        <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+        <h3 class="u-trace-white">U-TRACE | ADMINISTRATOR PANEL</h3>
+        <div class="header_img">  </div>
+    </header>
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">MENU</span> </a>
+                   <div class="nav_list">
+                   {{#if systemAdmin}}
+                            <a href="#" class="nav_link active"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span> </a>
+                            <a href="/contactTracing/contact-tracing_panel" class="nav_link"> <i class='bx bx-network-chart nav_icon'></i> <span class="nav_name">Contact Tracing</span> </a>
+                           {{!-- <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Report Generation</span> </a> --}}
+                            <a href="/usersInfo/users-info_panel" class="nav_link"> <i class='bx bx-data nav_icon'></i> <span class="nav_name">User Database</span> </a>
+                            <a href="/addUser/add-userAdmin" class="nav_link"> <i class='bx bx-plus-circle nav_icon'></i> <span class="nav_name">Add User Admin</span> </a>
+                            <a href="/user/admin-profile" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Profile</span> </a>
+                            {{!-- <a href="/faq/faq-page" class="nav_link"> <i class='bx bx-help-circle nav_icon'></i> <span class="nav_name">Help Page</span> </a> --}}
+                            <a href="/settings/admin-settings" class="nav_link"> <i class='bx bx-cog nav_icon'></i> <span class="nav_name">Configurations</span> </a>
+                           {{else if healthAuthority}}
+                            <a href="#" class="nav_link active"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span> </a>
+                            <a href="/contactTracing/contact-tracing_panel" class="nav_link"> <i class='bx bx-network-chart nav_icon'></i> <span class="nav_name">Contact Tracing</span> </a>
+                           {{!-- <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Report Generation</span> </a> --}}
+                            <a href="/usersInfo/users-info_panel" class="nav_link"> <i class='bx bx-data nav_icon'></i> <span class="nav_name">User Database</span> </a>
+                            <a href="/userVaxInfo/updateUserVaxInfo" class="nav_link"> <i class='bx bxs-capsule nav_icon'></i> <span class="nav_name">Update Vaccine Info</span> </a>
+                            <a href="/userTestInfo/newUserTestResult" class="nav_link"> <i class='bx bxs-spreadsheet nav_icon'></i> <span class="nav_name">Add Test Result</span> </a>
+                            <a href="/user/admin-profile" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Profile</span> </a>
+                            {{!-- <a href="/faq/faq-page" class="nav_link"> <i class='bx bx-help-circle nav_icon'></i> <span class="nav_name">Help Page</span> </a> --}}
+                            {{else if LGU}}
+                              <a href="#" class="nav_link active"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span> </a>
+                            <a href="/contactTracing/contact-tracing_panel" class="nav_link"> <i class='bx bx-network-chart nav_icon'></i> <span class="nav_name">Contact Tracing</span> </a>
+                            <a href="/usersInfo/users-info_panel" class="nav_link"> <i class='bx bx-data nav_icon'></i> <span class="nav_name">User Database</span> </a>
+                            <a href="/user/admin-profile" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Profile</span> </a>
+                            {{!-- <a href="/faq/faq-page" class="nav_link"> <i class='bx bx-help-circle nav_icon'></i> <span class="nav_name">Help Page</span> </a> --}}
+                           {{/if}}
+                    </div>
+            </div> <a href="/user/signout" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Logout</span> </a>
+        </nav>
+    </div>
+
+    <!-- Header -->
+    <div>
+        <h2 class="header-primary">DASHBOARD</h2>
+        <span class="header-secondary">The dashboard shows the recent data drop of COVID-19 Cases from the Department of Health-Philippines. It also shows useful statistics about registered U-Trace users.</span>
+    </div>
+
+    <div class="flex-container">
+        <div class="flex-child dashboard-header">REGISTERED U-TRACE USERS | STATISTICS</div>
+        <div class="flex-child" style="flex: 0.5; background-color: #2A8348;"><button id="dlDashboardBtn" type="button" class="buttonDashboard"><span>Download</span></button></div>
+     </div>
+
+    <div class="flex-container">
+
+        <div class="flex-child" style="flex: 1.5">
+            <canvas id="myChart"></canvas>
+        </div>
+        
+        <div class="flex-child">
+            <canvas id="barChart" width="350" height="50"></canvas>
+
+            <canvas id="barChart2" width="350" height="50"></canvas>
+        </div>
+
+    </div>
+
+    <div class="flex-container">
+         
+         <div class="flex-child" style="text-align: left; padding-left: 1em; padding-top: 1em; padding-right:1em;">
+
+            <div style=" padding-right:2em;">
+            <p id="registeredUsersLabel" style="font-weight: bold; font-family:Arial, Helvetica, sans-serif; font-size: 14px; margin-bottom: 0;"></p>
+            <table class="table table-sm" style="margin-bottom:0;">
+                <thead id="registeredUsersHead"></thead>
+            </table>
+            </div>
+
+            <div style="overflow-y: scroll; height: 14em; padding-right:1em;">
+            <table class="table table-sm">
+            <tbody id="registeredUsersTable">
+   
+            </tbody>
+            </table>
+            </div>
+        
+        </div>
+
+         <div class="flex-child" style="text-align: left; padding-left: 1em; padding-top: 1em; padding-right:1em;">
+
+            <div style=" padding-right:2em;">
+            <p id="positiveUsersWeekLabel" style="font-weight: bold; font-family:Arial, Helvetica, sans-serif; font-size: 14px; margin-bottom: 0;"></p>
+            <table class="table table-sm" style="margin-bottom:0;">
+                <thead id="positiveUsersWeekHead"></thead>
+            </table>
+            </div>
+
+            <div style="overflow-y: scroll; height: 14em; padding-right:1em;">
+            <table class="table table-sm">
+            <tbody id="positiveUsersWeekTable">
+  
+            </tbody>
+            </table>
+            </div>
+        
+        </div>
+    </div>
+
+    <div class="flex-container">
+         
+         <div class="flex-child" style="text-align: left; padding-left: 1em; padding-top: 1em; padding-right:1em;">
+            <div style=" padding-right:2em;">
+            <p id="vax1stDoseLabel" style="font-weight: bold; font-family:Arial, Helvetica, sans-serif; font-size: 14px; margin-bottom: 0;"></p>
+            <table class="table table-sm" style="margin-bottom:0;">
+                <thead id="vax1stDoseHead"></thead>
+            </table>
+            </div>
+
+            <div style="overflow-y: scroll; height: 14em; padding-right:1em;">
+            <table class="table table-sm">
+            <tbody id="vax1stDoseTable">
+
+            </tbody>
+            </table>
+            </div>
+        </div>
+
+         <div class="flex-child" style="text-align: left; padding-left: 1em; padding-top: 1em; padding-right:1em;">
+            <div style=" padding-right:2em;">
+            <p id="vax2ndDoseLabel" style="font-weight: bold; font-family:Arial, Helvetica, sans-serif; font-size: 14px; margin-bottom: 0;"></p>
+            <table class="table table-sm" style="margin-bottom:0;">
+                <thead id="vax2ndDoseHead"></thead>
+            </table>
+            </div>
+
+            <div style="overflow-y: scroll; height: 14em; padding-right:1em;">
+            <table class="table table-sm">
+            <tbody id="vax2ndDoseTable">
+
+            </tbody>
+            </table>
+            </div>
+        </div>
+
+         <div class="flex-child" style="text-align: left; padding-left: 1em; padding-top: 1em; padding-right:1em;">
+            <div style=" padding-right:2em;">
+            <p id="boosteredLabel" style="font-weight: bold; font-family:Arial, Helvetica, sans-serif; font-size: 14px; margin-bottom: 0;"></p>
+            <table class="table table-sm" style="margin-bottom:0;">
+                <thead id="boosteredHead"></thead>
+            </table>
+            </div>
+
+            <div style="overflow-y: scroll; height: 14em; padding-right:1em;">
+            <table class="table table-sm">
+            <tbody id="boosteredTable">
+
+            </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+
+    
+   
+  
+    <!-- Body Actual -->
+    <div class="flex-container"> <div class="flex-child dashboard-header">CASES OVERVIEW</div> </div>
+
+    <div class="flex-container" style="margin-bottom: 2em;">
+    <div class="flex-child" style="flex: 2;"></div>
+    <div class="flex-child" style="padding:1em;">
+        <div style="align-items: center;">
+            <div class='tableauPlaceholder' id='viz1641711803911' style='position: relative'><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='COVID-19CasesandDeathsinthePhilippines_15866705872710&#47;Home' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1641711803911');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='910px';vizElement.style.height='2927px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='910px';vizElement.style.height='2927px';} else { vizElement.style.width='100%';vizElement.style.height='6477px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+        </div>
+    </div>
+    <div class="flex-child" style="flex: 2;"></div>
+    </div>
+
+
+    
+    <script src="/node_modules/chart.js/dist/chart.js"></script>
+
+    <!-- JQuery-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <!--- > Locals: JS --->
+    <script src="../public/scripts/main.js"></script>
+    <script src="../public/scripts/dashboard.js"></script>
+    <!--- Bootstrap 5: JS Dependencies --->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="node_modules/mdbootstrap/js/jquery.min.js" type="text/javascript"></script>
+    <script src="node_modules/mdbootstrap/js/popper.min.js" type="text/javascript"></script>
+    <script src="node_modules/mdbootstrap/js/bootstrap.min.js" type="text/javascript" ></script>
+    <script src="node_modules/mdbootstrap/js/mdb.min.js" type="text/javascript"></script>
+</body>
+</html>

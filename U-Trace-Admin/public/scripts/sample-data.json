@@ -1,0 +1,67 @@
+{
+  "nodes": [
+    {"id": "Richard", "city": "Makati City", "group": "Close Contact"},
+    {"id": "Larry",   "city": "Makati City", "group": "Close Contact"},
+    {"id": "Marta",   "city": "Makati City", "group": "Close Contact"},
+    {"id": "Jane",    "city": "Makati City", "group": "Positive"},
+    {"id": "Norma",   "city": "Makati City", "group": "Close Contact"},
+    {"id": "Frank",   "city": "Makati City", "group": "Close Contact"},
+
+    {"id": "Bea",     "city": "Makati City", "group": "Positive"},
+    {"id": "Muller",  "city": "Makati City", "group": "Close Contact"},
+    {"id": "Fredy",   "city": "Makati City", "group": "Close Contact"},
+    {"id": "Mercury", "city": "Makati City", "group": "Close Contact"},
+    {"id": "Sam",     "city": "Makati City", "group": "Close Contact"},
+    {"id": "Paul",    "city": "Makati City", "group": "Close Contact"},
+    {"id": "Ren",     "city": "Makati City", "group": "Close Contact"},
+    {"id": "Henry",   "city": "Makati City", "group": "Positive"},
+
+    {"id": "Zen",     "city": "Makati City", "group": "Positive"},
+    {"id": "Hailey",  "city": "Makati City", "group": "Close Contact"},
+    {"id": "William", "city": "Makati City", "group": "Close Contact"},
+    {"id": "Jackson", "city": "Makati City", "group": "Close Contact"},
+    {"id": "Puck",    "city": "Makati City", "group": "Close Contact"},
+    {"id": "Emily",   "city": "Makati City", "group": "Close Contact"},
+    {"id": "Grayson", "city": "Makati City", "group": "Close Contact"},
+    {"id": "Anna",    "city": "Makati City", "group": "Close Contact"},
+    {"id": "Troy",    "city": "Makati City", "group": "Close Contact"},
+    {"id": "Gabriel", "city": "Makati City", "group": "Close Contact"},
+    {"id": "Joshua",  "city": "Makati City", "group": "Close Contact"},
+    {"id": "Reuben",  "city": "Makati City", "group": "Close Contact"},
+
+    {"id": "Brett",   "city": "Makati City", "group": "Close Contact"}
+  ],
+  "edges": [
+    {"from": "Richard", "to": "Larry"},
+    {"from": "Richard", "to": "Marta"},
+    {"from": "Larry",   "to": "Marta"},
+    {"from": "Marta",   "to": "Jane"},
+    {"from": "Jane",    "to": "Norma"},
+    {"from": "Jane",    "to": "Frank"},
+    {"from": "Jane",    "to": "Brett"},
+
+    {"from": "Bea",     "to": "Muller"},
+    {"from": "Bea",     "to": "Fredy"},
+    {"from": "Bea",     "to": "Mercury"},
+    {"from": "Bea",     "to": "Sam"},
+    {"from": "Bea",     "to": "Paul"},
+    {"from": "Bea",     "to": "Ren"},
+    {"from": "Bea",     "to": "Henry"},
+    {"from": "Henry",   "to": "Jane"},
+
+    {"from": "Henry",   "to": "Zen"},
+    {"from": "Zen",   "to": "Hailey"},
+    {"from": "Zen",   "to": "William"},
+    {"from": "Zen",   "to": "Jackson"},
+    {"from": "Zen",   "to": "Puck"},
+    {"from": "Zen",   "to": "Emily"},
+    {"from": "Zen",   "to": "Grayson"},
+    {"from": "Zen",   "to": "Anna"},
+    {"from": "Zen",   "to": "Troy"},
+    {"from": "Zen",   "to": "Gabriel"},
+    {"from": "Zen",   "to": "Joshua"},
+    {"from": "Zen",   "to": "Reuben"},
+
+    {"from": "Brett",   "to": "Frank"}
+  ]
+}

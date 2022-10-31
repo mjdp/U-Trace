@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://u.cubeupload.com/almanaclmao337/zz.png">
+
+    <title>Users Database | U-Trace</title>
+
+    <!--- Locals: CSS --->
+    <link rel="stylesheet" href="/public/css/main.css">
+    <link rel="stylesheet" href="/public/css/usersInfo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+    <!-- TomSelect -->
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.0.0/dist/css/tom-select.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.0.0/dist/js/tom-select.complete.min.js"></script>
+ 
+    <!--- Bootstrap 5: CSS Dependencies --->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="../node_modules/mdbootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/mdbootstrap/css/mdb.min.css">
+    <link rel="stylesheet" href="../node_modules/mdbootstrap/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body id="body-pd">
+    <!-- Bootstrap Sidebar -->
+    <header class="header" id="header">
+        <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+        <h3 class="u-trace-white">U-TRACE | ADMINISTRATOR PANEL</h3>
+        <div class="header_img">  </div>
+    </header>
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">MENU</span> </a>
+                <div class="nav_list">
+                   {{#if systemAdmin}}
+                           <a href="/" class="nav_link"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span> </a>
+                           <a href="/contactTracing/contact-tracing_panel" class="nav_link"> <i class='bx bx-network-chart nav_icon'></i> <span class="nav_name">Contact Tracing</span> </a>
+                           {{!-- <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Report Generation</span> </a> --}}
+                            <a href="#" class="nav_link active"> <i class='bx bx-data nav_icon'></i> <span class="nav_name">User Database</span> </a>
+                            <a href="/addUser/add-userAdmin" class="nav_link"> <i class='bx bx-plus-circle nav_icon'></i> <span class="nav_name">Add User Admin</span> </a>
+                            <a href="/user/admin-profile" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Profile</span> </a>
+                            {{!-- <a href="/faq/faq-page" class="nav_link"> <i class='bx bx-help-circle nav_icon'></i> <span class="nav_name">Help Page</span> </a> --}}
+                            <a href="/settings/admin-settings" class="nav_link"> <i class='bx bx-cog nav_icon'></i> <span class="nav_name">Configurations</span> </a>
+                           {{else if healthAuthority}}
+                            <a href="/" class="nav_link"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span> </a>
+                           <a href="/contactTracing/contact-tracing_panel" class="nav_link"> <i class='bx bx-network-chart nav_icon'></i> <span class="nav_name">Contact Tracing</span> </a>
+                           {{!-- <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Report Generation</span> </a> --}}
+                              <a href="#" class="nav_link active"> <i class='bx bx-data nav_icon'></i> <span class="nav_name">User Database</span> </a>
+                           <a href="/userVaxInfo/updateUserVaxInfo" class="nav_link"> <i class='bx bxs-capsule nav_icon'></i> <span class="nav_name">Update Vaccine Info</span> </a>
+                            <a href="/userTestInfo/newUserTestResult" class="nav_link"> <i class='bx bxs-spreadsheet nav_icon'></i> <span class="nav_name">Add Test Result</span> </a>
+                            <a href="/user/admin-profile" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Profile</span> </a>
+                            {{!-- <a href="/faq/faq-page" class="nav_link"> <i class='bx bx-help-circle nav_icon'></i> <span class="nav_name">Help Page</span> </a> --}}
+                            {{else if LGU}}
+                             <a href="/" class="nav_link"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span> </a>
+                           <a href="/contactTracing/contact-tracing_panel" class="nav_link"> <i class='bx bx-network-chart nav_icon'></i> <span class="nav_name">Contact Tracing</span> </a>
+                           <a href="#" class="nav_link active"> <i class='bx bx-data nav_icon'></i> <span class="nav_name">User Database</span> </a>
+                           <a href="/user/admin-profile" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Profile</span> </a>
+                           {{!-- <a href="/faq/faq-page" class="nav_link"> <i class='bx bx-help-circle nav_icon'></i> <span class="nav_name">Help Page</span> </a> --}}
+                           {{/if}}
+                </div>
+            </div> <a href="/user/signout" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span> </a>
+        </nav>
+    </div>
+
+    <!-- Heading -->
+    <div style="margin-bottom: 1em;">
+        <h2 class="header-primary">USERS DATABASE</h2>
+        <span class="header-secondary">This shows the list of users and user details in your area.</span>
+    </div>
+
+
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal-s">
+      <!-- Modal content -->
+      <div class="modal-content-s">
+        <div class="modal-header-s">
+          <span class="close">&times;</span>
+          <h3>SUCCESS</h3>
+        </div>
+        <div class="modal-body-s">
+          <p>The selected user has been notified to verify his/her account.<p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEARCH BAR, VERIFY, DOWNLOAD -->
+    <div class="flex-container">
+      <div class="flex-child" style="padding:0.5em; flex:75%;"> 
+        <select id="userlist" name="userlist" placeholder="Select a person..." autocomplete="off">
+	        <option value="" selected disabled>Select a person...</option>
+          {{#each allUsers}}
+                <option value="{{this.id}}">{{this.name}} ({{this.id}})</option>
+          {{/each}}
+	      </select>  
+      </div>
+      <div id="notifyDiv" class="flex-child" style="flex: 25%; padding:0.5em;">
+        <button id="notifyBtn" type="button" class="actn-btn-disabled"><span>Notify User</span></button>
+      </div>
+    </div>
+
+    <div class="flex-container" style="margin-top:0em;">
+      
+      <div id="userTable" class="flex-child">
+
+        <div style="padding:1em; ">
+          <table class="table table-sm" style="height: 1em;">
+            <thead>
+              <tr>
+                <th style="padding-left:1em; width:25%;" class="thleftedge" scope="col">Phone</th>
+                <th style="width:25%" scope="col">Name</th>
+                <th style="width:30%" scope="col">City</th>
+                <th style="width:10%" class="thrightedge" scope="col">Verified?</th>
+              </tr>
+            </thead>
+            <tbody id="usersTable">
+              {{#each users}}
+              <tr class="userinfo">
+                <td style="padding-left:1em;" class="mPhoneNo">{{this.phone}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.city}}</td>
+                <td>{{this.v_status}}</td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>          
+        </div>
+
+      </div>
+
+      <div id="userDetailsDiv" class="flex-child" style="overflow-y: auto; height:38em;">
+               
+        <div style="padding:1em;">
+          <table class="table"> {{!-- USER GENERAL INFORMATION  --}}
+
+          <thead>
+            <tr>
+              <th scope="col" colspan="2" style="padding: 0px;">
+                <h5 style="display:inline;">GENERAL INFORMATION</h5>
+              </th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            <tr>
+              <td>UID</td>
+              <td id="userUID">N/A</td>
+            </tr>
+            <tr>
+              <td>Name</td>
+              <td id="userName">N/A</td>
+            </tr>
+            <tr>
+              <td style="width:300px;">Verified?</td>
+              <td id="userVerifiedStatus"class="notification">N/A</td>
+            </tr>
+            <tr>
+              <td>Last Test Date</td>
+              <td id="userLastTestDate">N/A</td>
+            </tr>
+            <tr>
+              <td>Status</td>
+              <td id="userStatus">N/A</td>
+            </tr>
+          </tbody>
+
+        </table>
+        
+        <table class="table"> {{!-- LOCATION --}}
+          
+          <thead>
+            <tr>
+              <th scope="col" colspan="4" style="padding: 0px;"><h5>LOCATION</h5></th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            <tr>
+              <td style="width: 300px;">Region</td>
+              <td id="userRegion">N/A</td>
+            </tr>
+            <tr>
+              <td>Province</td>
+              <td id="userProvince">N/A</td>
+            </tr>
+            <tr>
+              <td>City</td>
+              <td id="userCity">N/A</td>
+            </tr>
+            <tr>
+              <td>Barangay</td>
+              <td id="userBarangay">N/A</td>
+            </tr>
+            <tr>
+              <td>Street</td>
+              <td id="userStreet">N/A</td>
+            </tr>
+          </tbody>
+
+        </table>
+
+        <table class="table"> {{!-- VACCINE INFORMATION  --}}
+          
+          <thead>
+            <tr>
+              <th scope="col" colspan="4" style="padding: 0px;"><h5>VACCINE INFORMATION</h5></th>
+            </tr>
+          </thead>
+
+          <tbody id="Vax">
+            <tr>
+              <td class="b" style="width: 300px;">Vaccination ID</td>
+              <td id="userVaxID">[vax-id]</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="b">Facility</td>
+              <td id="userVaxFacility">N/A</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="b">Category</td>
+              <td id="userVaxCategory">N/A</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="b">Manufacturer</td>
+              <td id="userVaxBrand">N/A</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="b">First Dose</td>
+              <td class="b">Batch #</td>
+              <td class="b">Lot #</td>
+              <td class="b">Vaccinator</td>
+            </tr>
+            <tr>
+              <td id="dose1date">N/A</td>
+              <td id="dose1batchNo">N/A</td>
+              <td id="dose1lotNo">N/A</td>
+              <td id="dose1vaccinator">N/A</td>
+            </tr>
+            <tr>
+              <td class="b">Second Dose</td>
+              <td class="b">Batch #</td>
+              <td class="b">Lot #</td>
+              <td class="b">Vaccinator</td>
+            </tr>
+            <tr>
+              <td id="dose2date">N/A</td>
+              <td id="dose2batchNo">N/A</td>
+              <td id="dose2lotNo">N/A</td>
+              <td id="dose2vaccinator">N/A</td>
+            </tr>    
+          </tbody>
+
+          {{!-- Shows when user has no data to be displayed --}}
+          <tbody id="noVax">
+            <tr>
+              <td> This user has no recorded vaccine information.</td>
+            </tr>
+          </tbody>
+        
+        </table>
+
+
+        <table class="table"> {{!-- BOOSTER SHOTS  --}}
+
+          <thead>
+            <tr>
+              <th scope="col" colspan="6" style="padding: 0px;"><h5>BOOSTER SHOTS</h5></th>
+            </tr>
+          </thead>
+
+          <tbody id="Booster">
+            <tr>
+              <td class="b">Date</td>
+              <td class="b">Vaccinator</td>
+              <td class="b">Facility</td>
+              <td class="b">Batch #</td>
+              <td class="b">Lot #</td>
+              <td class="b">Manufacturer</td>
+            </tr>
+            <tr>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+              <td>N/A</td>
+            </tr>
+          </tbody>
+
+          {{!-- Shows when user has no data to be displayed --}}
+          <tbody id="noBooster">
+            <tr>
+              <td> This user has no recorded boosters.</td>
+            </tr>
+          </tbody>
+
+        </table>
+        
+        <table class="table"> {{!-- TEST RESULTS --}}
+          
+          <thead>
+            <tr>
+              <th scope="col" colspan="2" style="padding: 0px;"><h5>TEST RESULTS | HISTORY</h5></th>
+            </tr>
+          </thead>
+
+          <tbody id="Test">
+            <tr>
+              <td class="b">Date</td>
+              <td class="b">Result</td>
+            </tr>
+            <tr>
+              <td>N/A</td>
+              <td>N/A</td>
+            </tr>
+          </tbody>
+
+          {{!-- Shows when user has no data to be displayed --}}
+          <tbody id="noTest">
+            <tr>
+              <td> This user has no recorded test results.</td>
+            </tr>
+          </tbody>
+        
+        </table>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div style="margin-top:0.5em;">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination" style="margin-bottom: 0px;">
+
+          {{!-- <li class="page-item"> <!-- FIRST PAGE -->
+            <a class="page-link" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li> --}}
+
+          <li id="prevBtn" class="page-item disabled"> <!-- PREVIOUS PAGE -->
+            <a class="page-link" style="background-color: whitesmoke;" aria-label="Previous">
+              <span aria-hidden="true">&lsaquo;</span>
+            </a>
+          </li>
+
+          <li class="page-item page-no active"><a class="page-link">1</a></li>
+          {{#each pageCount}}
+          <li class="page-item page-no"><a class="page-link">{{this}}</a></li>
+          {{/each}}
+          
+          <li id="nextBtn" class="page-item">  <!-- NEXT PAGE -->
+            <a class="page-link" style="background-color: whitesmoke;" aria-label="Next">
+              <span aria-hidden="true">&rsaquo;</span>
+            </a>
+          </li>
+
+          {{!-- <li class="page-item">  <!-- LAST PAGE -->
+            <a class="page-link" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li> --}}
+
+        </ul>
+      </nav>
+    </div>
+
+    
+
+    <!--- Locals: JS --->
+    <script src="../public/scripts/usersInfo.js"></script>
+    <!--- Bootstrap 5: JS Dependencies --->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../node_modules/mdbootstrap/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../node_modules/mdbootstrap/js/popper.min.js" type="text/javascript"></script>
+    <script src="../node_modules/mdbootstrap/js/bootstrap.min.js" type="text/javascript" ></script>
+    <script src="../node_modules/mdbootstrap/js/mdb.min.js" type="text/javascript"></script>
+</body>
+</html>

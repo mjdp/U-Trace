@@ -1,0 +1,107 @@
+*{
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none !important
+}
+
+.empty-button{
+    background-color: transparent;
+    border-width: 0;
+    height: 1.5em;
+}
+
+html, body {
+    overflow: auto;
+    height: 100%;
+    background: linear-gradient(#2A8348, #34B961, #D2FF99);
+    background-repeat: no-repeat;
+    width: 100%;
+
+}
+
+.title{
+    background: -webkit-linear-gradient(#FFFEF6, #D2FF99);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-weight:lighter;
+    letter-spacing: 0.3em;
+    display: block;
+    font-size: 4em;
+    margin: 0;
+    padding: 0;
+}
+
+.subtitle{
+    background: -webkit-linear-gradient(#FFFEF6, #D2FF99);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-weight: lighter;
+    letter-spacing: 0.2em;   
+    font-size: 1.24em;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.error{
+    border-radius: 12px;
+    background-color: white;
+    color: red;
+    text-align: center;
+    margin-bottom: 1em;
+    padding: 0.2em;
+}
+
+.login {
+    font-size: 0.9em;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2em;
+    margin-top: 2em;
+    width: 35%;
+    height: auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0px 5px 10px 0px #63a34f;
+}
+
+.u-trace-green {
+    color:#2A8348;
+    font-weight: bold;
+}
+
+a.u-trace-green {
+    color:#2A8348;
+    font-weight: normal;
+}
+
+a:hover{
+    color:#2cb65a !important;
+}
+
+.signin-button{
+    background-color: #2A8348 !important;
+    color: white !important;
+}
+
+.center{
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    top: 45%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+

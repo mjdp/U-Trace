@@ -1,0 +1,334 @@
+.flex-container-delete {
+
+    display: flex;
+}
+  
+.flex-child-delete {
+    background-color: transparent;
+    flex: 5;
+    margin-right: 1em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    text-align: left;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: none;
+    border-radius: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+/* .flex-container {
+    margin-top: 1em;
+    display: flex;
+}
+
+.flex-child {
+    background-color: whitesmoke;
+    color: #2A8348;
+    flex: 5;
+    margin-right: 1em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    align-items: center;
+    text-align: center;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    -webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05)
+} */
+
+.pwError{
+    border-radius: 12px;
+    color: red;
+    padding: 0.2em;
+    font-size: 13px;
+}
+
+.delete-btn {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #bb3e2e;
+    border: none;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 12px;
+    transition: all 0.5s;
+    cursor: pointer;
+    /* margin-left: 2em;
+    margin-bottom: 1em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;*/
+    padding-left: 1em;
+    padding-right: 1em; 
+}
+
+.delete-btn:hover {
+    background-color: #e92b12; /* 27aa52 */
+}
+  
+.delete-btn-v2-disabled {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #6f4842; /* 2A8348 */
+    border: none;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 15px;
+    transition: all 0.5s;
+    cursor: pointer;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 3em;
+    padding-right: 3em; 
+}
+
+.delete-btn-v2-enabled {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #bb3e2e;
+    border: none;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 15px;
+    transition: all 0.5s;
+    cursor: pointer;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 3em;
+    padding-right: 3em; 
+}
+
+.delete-btn-v2-enabled:hover {
+    background-color: #e92b12;
+}
+
+.save-btn-v2-enabled {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #2A8348;
+    border: none;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 15px;
+    transition: all 0.5s;
+    cursor: pointer;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 3em;
+    padding-right: 3em; 
+}
+
+.save-btn-v2-enabled:hover {
+    background-color: #27aa52;
+}
+  
+
+.view input {
+    border:0;
+    background:0;
+    outline:none !important;
+}
+
+.flex-container {
+    width: 99%;
+    margin-top: 1em;
+    display: flex;
+    margin-right: 0em;
+    padding-right: 0em;
+}
+
+.flex-child {
+    background-color: whitesmoke;
+    color: #2A8348;
+    flex: 5;
+    margin-right: 0em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    align-items: center;
+    text-align: center;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    -webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05)
+}
+
+label.active {
+    color: #2A8348;
+}
+
+.ital {
+    font-style: italic;
+}
+
+.input-margin {
+    margin-top: 1em;
+    margin-right: 1.3em;
+    margin-left: 1.3em;
+    margin-bottom: 1em;
+    width: 50em;
+}
+
+.settings-title {
+    text-align: left;
+}
+
+.s-header{
+    margin-left: 20px;
+    display: block;
+    font-size: 0.9em;
+}
+
+.s-title{
+    margin-top: 10px;
+    font-size: large;
+    font-weight: bold;
+}
+
+.accordion{
+    --nav-width: default;
+    width: 99%;
+}
+
+.accordion-spacer-big{
+    display:inline-block;
+    width: 160px;
+}
+
+.accordion-spacer-massive{
+    display:inline-block;
+    width: 300px;
+}
+.accordion-spacer-small{
+    display:inline-block;
+    width: 75px;
+}
+
+.dashboard-header{
+    color: whitesmoke;
+    background-color: #2A8348;
+    text-align: center;
+}
+
+.editing{
+    font-style: italic;
+    color: red;
+}
+
+#container {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.by1 {
+    border-radius: 4px;
+    width: 30px;
+    height: 30px;
+    background-color: #2A8348;
+    border: none;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.by1:hover {
+    background-color: #279e4f;
+}
+
+.by1Disabled {
+    border-radius: 4px;
+    width: 30px;
+    height: 30px;
+    background-color: #708978;
+    border: none;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.incdec1{
+    width: 30px;
+    height: 30px;
+    border: none;
+    text-align: center;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #2A8348;
+    border-radius: 4px;
+}
+
+/* Page content */
+.content {
+    padding: 16px;
+  }
+  
+  /* The sticky class is added to the header with JS when it reaches its scroll position */
+  .sticky {
+    position: fixed;
+    bottom:0;
+    right: 0;
+  }
+  
+  /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+  .sticky + .content {
+    padding-top: 102px;
+  }
+
+
+.savebtn {
+    /* display: inline-block; */
+
+    display: none;
+    border-top-left-radius: 20px;
+    background-color: #5cb85c;
+    border: none;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 15px;
+    padding-left: 5em;
+    padding-right: 5em;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-top:1px;
+    margin-right: 1em;
+  }
+
+.savebtn span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.1s;
+}
+  
+.savebtn span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+  
+.savebtn:hover span {
+    padding-right: 25px;
+}
+  
+.savebtn:hover span:after {
+    opacity: 1;
+    right: 0;
+  }

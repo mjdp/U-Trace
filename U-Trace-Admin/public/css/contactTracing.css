@@ -1,0 +1,72 @@
+.pagination > li > a
+{
+    background-color: white;
+    color: #2A8348;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    color: #5a5a5a;
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.pagination > .active > a
+{
+    color: white;
+    background-color: #2A8348 !Important;
+    border: solid 1px #2A8348 !Important;
+}
+
+.pagination > .active > a:hover
+{
+    background-color: #2A8348 !Important;
+    border: solid 1px #2A8348;
+}
+
+.buttonNotify {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #2A8348;
+    border: none;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-top:1em;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin:0;
+    width:8em;
+    padding:0.3em;
+    font-size:0.7em;
+  }
+
+.buttonNotify span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.1s;
+  }
+  
+  .buttonNotify span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .buttonNotify:hover span {
+    padding-right: 25px;
+  }
+  
+  .buttonNotify:hover span:after {
+    opacity: 1;
+    right: 0;
+  }

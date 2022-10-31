@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://u.cubeupload.com/almanaclmao337/zz.png">
+
+    <title>Configurations | U-Trace</title>
+
+    <!--- Locals: CSS --->
+    <link rel="stylesheet" href="/public/css/main.css">
+    <link rel="stylesheet" href="/public/css/settings.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+ 
+    <!--- Bootstrap 5: CSS Dependencies --->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="../node_modules/mdbootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/mdbootstrap/css/mdb.min.css">
+    <link rel="stylesheet" href="../node_modules/mdbootstrap/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body id="body-pd">
+    <!-- Bootstrap Sidebar -->
+    <header class="header" id="header">
+        <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+        <h3 class="u-trace-white">U-TRACE | ADMINISTRATOR PANEL</h3>
+        <div class="header_img">  </div>
+    </header>
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">MENU</span> </a>
+                <div class="nav_list">
+                  {{#if systemAdmin}}
+                           <a href="/" class="nav_link"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span> </a>
+                           <a href="/contactTracing/contact-tracing_panel" class="nav_link"> <i class='bx bx-network-chart nav_icon'></i> <span class="nav_name">Contact Tracing</span> </a>
+                           {{!-- <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Report Generation</span> </a> --}}
+                            <a href="/usersInfo/users-info_panel" class="nav_link"> <i class='bx bx-data nav_icon'></i> <span class="nav_name">User Database</span> </a>
+                            <a href="/addUser/add-userAdmin" class="nav_link"> <i class='bx bx-plus-circle nav_icon'></i> <span class="nav_name">Add User Admin</span> </a>
+                            <a href="/user/admin-profile" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Profile</span> </a>
+                            {{!-- <a href="/faq/faq-page" class="nav_link"> <i class='bx bx-help-circle nav_icon'></i> <span class="nav_name">Help Page</span> </a> --}}
+                            <a href="#" class="nav_link active"> <i class='bx bx-cog nav_icon'></i> <span class="nav_name">Configurations</span> </a>
+                    {{/if}}
+                </div>
+            </div> <a href="/user/signout" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span> </a>
+        </nav>
+    </div>
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal-s">
+    <!-- Modal content -->
+    <div class="modal-content-s">
+      <div class="modal-header-s">
+        <span class="close">&times;</span>
+        <h3>SUCCESS</h3>
+      </div>
+      <div class="modal-body-s">
+        <p>Changes have been saved.<p>
+      </div>
+    </div>
+  </div>
+
+  <div id="pwModal" class="modal-s">
+    <!-- Modal content -->
+    <div class="modal-content-s">
+      <div class="modal-header-s">
+        <h3>CONFIRM ADMIN ACCOUNT DELETION</h3>
+      </div>
+      <div class="modal-body-s">
+        <div>
+          <label for="passDelete" class="form-label u-trace-green">Input your password to confirm deletion:</label>
+          <input type="password" class="form-control" id="passDelete" name="passDelete">
+          <form id="deleteAccForm" method="POST" action="deleteAdminAccount">
+          <input type="text" class="form-control" id="accToDelete" name="accToDelete" hidden>
+            </form>
+        </div>
+        
+        <div id="wrongPassword" class="pwError" hidden>The password you entered is incorrect.</div>
+        
+        <div style="margin-bottom: 1em; text-align:center; margin-top: 1em;">
+          <button id="confirmDeletion" class="delete-btn-v2-disabled" style="margin-right: 3em;" disabled>CONFIRM</button>
+          <button id="closePwModal" class="save-btn-v2-enabled">CANCEL</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Heading -->
+  <div style="margin-bottom: 1em;">
+    <h2 class="header-primary">CONTACT TRACING CONFIGURATIONS</h2>
+    <span class="header-secondary">This allows you to adjust the generation count for contact tracing as well as view the current users of the administrative information system.</span>
+  </div>
+
+  {{#if deletionSuccess}}
+  <div id="deleteSuccessBanner"class="flex-container-delete">
+      <div class="flex-child-delete">
+          <div class="alert">
+          <span id ="delBannerBtn"class="closebtn">&times;</span>
+              The selected account was successfully deleted.
+          </div>
+      </div>
+  </div>
+  {{/if}}
+
+  <!-- Config -->
+  <div class="flex-container"> <div class="flex-child dashboard-header"> CONTACT TRACING SETTINGS </div> </div>
+
+  <div class="flex-container" style="margin-bottom: 1em;"> 
+    <div class="flex-child settings-title">
+      <span class="s-header s-title">Generation Count:
+        <button id="dec" class="by1">-</button>
+        <input id="genCtr" class="incdec1"value="{{genCount}}" min="1" readonly></input>
+        <button id="inc" class="by1">+</button>
+      </span>
+      <span class="s-header ital">specifices the number of generations to be considered in generating the contact tracing graph.</span>
+    </div>
+  </div>
+  
+  <!-- System Users -->
+  <div class="flex-container"> <div class="flex-child dashboard-header" style="margin-bottom: 1em;"> SYSTEM ADMIN LIST </div> </div>
+
+  <!-- Search Bar -->
+  <input class="form-control mb-4" id="tableSearch" type="text" placeholder="search...">
+  
+  <!-- Accordion Table of Users -->
+  <h8 style="font-weight: bold; color: #2A8348; margin-left: 20px;">Email</h8>
+  <h8 style="font-weight: bold; color: #2A8348; margin-left: 156px;">Name</h8>
+  <h8 style="font-weight: bold; color: #2A8348; margin-left: 113px;">Role</h8>
+
+  <div class="accordion" style="margin-top: 2px; margin-bottom:3em;" id="users-accordion">
+    <!--START OF EACH STATEMENT -->
+    {{#each userlist}} 
+    <div class="accordion-item"> 
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed bg-light" style="color: #2A8348;" type="button" data-bs-toggle="collapse" data-bs-target="#col-{{@index}}" aria-expanded="false" aria-controls="col-{{@index}}">
+          <span class="accordion-spacer-big" style="width: 200px;">{{this.email}}</span>
+          <span class="accordion-spacer-big">{{this.name}}</span>
+          <span class="accordion-spacer-big" style="width: 400px;">{{this.role}}</span>
+        </button>
+      </h2>
+      <div id="col-{{@index}}" class="accordion-collapse collapse"  data-bs-parent="#users-accordion">
+        <div class="accordion-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col" colspan="4" style="padding: 0px;"><h5>DETAILS</h5></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Region</td>
+                  {{#if this.region}}
+                  <td>{{this.region}}</td>
+                  {{else}}
+                  <td>N/A</td>
+                  {{/if}}
+              </tr>
+              <tr>
+                <td>Province</td>
+                  {{#if this.province}}
+                  <td>{{this.province}}</td>
+                  {{else}}
+                  <td>N/A</td>
+                  {{/if}}
+              </tr>
+              <tr>
+                <td>City</td>
+                  {{#if this.city}}
+                  <td>{{this.city}}</td>
+                  {{else}}
+                  <td>N/A</td>
+                  {{/if}}
+              </tr>
+              <tr>
+                <td>Barangay</td>
+                  {{#if this.barangay}}
+                  <td>{{this.barangay}}</td>
+                  {{else}}
+                  <td>N/A</td>
+                  {{/if}}
+              </tr>
+              {{#if this.allowDelete}}
+              <tr>
+                <td>
+                  <span class="delete-btn">DELETE ADMIN</span>
+                </td>
+                <td>
+                  <span class="toDelete" hidden>{{this.id}}</span>
+                </td>
+              </tr>
+              {{/if}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!--END OF EACH STATEMENT -->
+    {{/each}}
+  </div>
+
+  <div class="sticky" style="z-index: 2;">
+    <button id="save" class="savebtn"><span>Save Changes</span></button>
+  </div>
+  
+  <!--- Locals: JS --->
+  <script src="../public/scripts/settings.js"></script>
+  <!--- Bootstrap 5: JS Dependencies --->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../node_modules/mdbootstrap/js/jquery.min.js" type="text/javascript"></script>
+  <script src="../node_modules/mdbootstrap/js/popper.min.js" type="text/javascript"></script>
+  <script src="../node_modules/mdbootstrap/js/bootstrap.min.js" type="text/javascript" ></script>
+  <script src="../node_modules/mdbootstrap/js/mdb.min.js" type="text/javascript"></script>
+</body>
+</html>

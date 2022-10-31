@@ -1,0 +1,121 @@
+.dataTableLabels{
+    font-weight: bold;
+    font-family:Arial, Helvetica, sans-serif;
+    color:#434343;
+}
+
+.dashboard-header{
+    color: whitesmoke;
+    background-color: #2A8348;
+    text-align: center;
+}
+
+.orange{
+    color: white;
+    background: linear-gradient(#FF8E15, #ff5715);
+}
+
+.green{
+    color: white;
+    background: linear-gradient(#69B34C, #bcd148);
+}
+
+.red{
+    color: white;
+    background:linear-gradient(#FF0D0D, #924444);
+}
+
+.true-green{
+    color: white;
+    background: linear-gradient(#34B961, #428E5C);
+}
+
+.grey{
+    color: white;
+    background: linear-gradient(rgb(209, 200, 200), #898585);
+}
+
+.db-support{
+    display: block;
+    font-weight: bold;
+}
+
+.db-support-v2{
+    display: block;
+    font-weight: bold;
+    line-height: 50%;
+    margin-bottom: 1em;
+}
+
+.S1{
+    margin-top: 1em;
+}
+
+.S2{
+    font-size:1.5em;
+    margin-bottom: 0.5em;
+}
+
+.db-h1{
+    font-size: 4.5em;
+    margin: 0;
+    padding: 0;
+    line-height: 120%;
+}
+
+.db-h2{
+    font-size: 0.4em;
+    margin: 0;
+    padding: 0;
+}
+
+.flex-child-clear {
+    background-color: transparent;
+    color: #2A8348;
+    flex: 5;
+    margin-right: 1em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    align-items: center;
+    text-align: center;
+
+}
+
+.buttonDashboard {
+    display: inline-block;
+    border-radius: 4px;
+    width: 100%;
+    background-color: #2A8348;
+    border: none;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 15px;
+    transition: all 0.5s;
+    cursor: pointer;
+  }
+
+.buttonDashboard span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.1s;
+  }
+  
+  .buttonDashboard span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .buttonDashboard:hover span {
+    padding-right: 25px;
+  }
+  
+  .buttonDashboard:hover span:after {
+    opacity: 1;
+    right: 0;
+  }

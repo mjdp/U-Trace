@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://u.cubeupload.com/almanaclmao337/zz.png">
+
+    <title>User Test Information | U-Trace</title>
+
+     <!--- Locals: CSS --->
+    <link rel="stylesheet" href="/public/css/main.css">
+    <link rel="stylesheet" href="/public/css/userVaxInfo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+    <!-- TomSelect -->
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.0.0/dist/css/tom-select.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.0.0/dist/js/tom-select.complete.min.js"></script>
+ 
+    <!--- Bootstrap 5: CSS Dependencies --->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="../node_modules/mdbootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/mdbootstrap/css/mdb.min.css">
+    <link rel="stylesheet" href="../node_modules/mdbootstrap/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <!--- JSPDF | JS Dependencies --->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.0.5/jspdf.plugin.autotable.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!--- Algolia -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.3.1/themes/reset-min.css" integrity="sha256-t2ATOGCtAIZNnzER679jwcFcKYfLlw01gli6F6oszk8=" crossorigin="anonymous">
+
+</head>
+
+<body id="body-pd">  
+    <!-- Bootstrap Sidebar -->
+    <header class="header" id="header">
+        <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+        <h3 class="u-trace-white">U-TRACE | ADMINISTRATOR PANEL</h3>
+        <div class="header_img">  </div>
+    </header>
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">MENU</span> </a>
+                <div class="nav_list">
+             {{#if systemAdmin}}
+                           <a href="/" class="nav_link"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span> </a>
+                           <a href="/contactTracing/contact-tracing_panel" class="nav_link"> <i class='bx bx-network-chart nav_icon'></i> <span class="nav_name">Contact Tracing</span> </a>
+                           {{!-- <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Report Generation</span> </a> --}}
+                            <a href="/usersInfo/users-info_panel" class="nav_link"> <i class='bx bx-data nav_icon'></i> <span class="nav_name">User Database</span> </a>
+                            <a href="/addUser/add-userAdmin" class="nav_link"> <i class='bx bx-plus-circle nav_icon'></i> <span class="nav_name">Add User Admin</span> </a>
+                            <a href="/user/admin-profile" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Profile</span> </a>
+                            {{!-- <a href="/faq/faq-page" class="nav_link"> <i class='bx bx-help-circle nav_icon'></i> <span class="nav_name">Help Page</span> </a> --}}
+                            <a href="/settings/admin-settings" class="nav_link"> <i class='bx bx-cog nav_icon'></i> <span class="nav_name">Configurations</span> </a>
+                           {{else if healthAuthority}}
+                            <a href="/" class="nav_link"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span> </a>
+                           <a href="/contactTracing/contact-tracing_panel" class="nav_link"> <i class='bx bx-network-chart nav_icon'></i> <span class="nav_name">Contact Tracing</span> </a>
+                           {{!-- <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Report Generation</span> </a> --}}
+                            <a href="/usersInfo/users-info_panel" class="nav_link"> <i class='bx bx-data nav_icon'></i> <span class="nav_name">User Database</span> </a>
+                            <a href="/userVaxInfo/updateUserVaxInfo" class="nav_link"> <i class='bx bxs-capsule nav_icon'></i> <span class="nav_name">Update Vaccine Info</span> </a>
+                             <a href="#" class="nav_link active"> <i class='bx bxs-spreadsheet nav_icon'></i> <span class="nav_name">Add Test Result</span> </a>
+                             <a href="/user/admin-profile" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Profile</span> </a>
+                             {{!-- <a href="/faq/faq-page" class="nav_link"> <i class='bx bx-help-circle nav_icon'></i> <span class="nav_name">Help Page</span> </a> --}}
+                           {{else if LGU}}
+                             <a href="/" class="nav_link"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span> </a>
+                           <a href="/contactTracing/contact-tracing_panel" class="nav_link"> <i class='bx bx-network-chart nav_icon'></i> <span class="nav_name">Contact Tracing</span> </a>
+                           {{/if}}
+                </div>
+            </div> <a href="/user/signout" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">SignOut</span> </a>
+        </nav>
+    </div>
+
+    <!-- Header -->
+    <div>
+        <h2 class="header-primary">USER TEST INFORMATION</h2>
+        <span class="header-secondary">This allows you to update the test information as well as the COVID19 test status of a specific user.</span>
+    </div>
+
+    {{#if success}}
+    <div class="flex-container">
+        <div class="flex-child">
+            <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                User's test result has been updated.
+            </div>
+        </div>
+    </div>
+    {{/if}}
+
+    {{#if success_negative}}
+    <div class="flex-container">
+        <div class="flex-child">
+            <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                User's test result has been updated. Additionally, user has been removed in the contact tracing page.
+            </div>
+        </div>
+    </div>
+    {{/if}}
+  
+    <form id="testForm" method="POST" action="confirmTestResult">
+
+    <!-- Search (Front: TomSelect; Back: Algolia) -->
+    <div class="flex-container">
+        <div class="flex-child">
+            <select id="userlist" name="userlist" placeholder="Select a person..." autocomplete="off">
+	            <option value="" selected disabled>Select a person...</option>
+                {{#each users}}
+                <option value="{{this.objectID}}">{{this.firstname}} {{this.lastname}} ({{this.objectID}})</option>
+                {{/each}}
+	        </select>
+        </div>
+    </div>
+
+    <div class="flex-container" style="margin-top:0.3em;"><div class="flex-childv2 dashboard-header">Add Test Result</div></div> 
+
+    <div class="flex-container">
+        <div class="flex-child">
+            
+            <label for="testID" class="form-label u-trace-green">Test ID:</label>
+            <input type="text" class="form-control" id="testID" name="testID" disabled>
+
+            <br>
+
+            <label for="testDate" class="form-label u-trace-green">Test Date:</label>
+            <input type="date" class="form-control" id="testDate" name="testDate" required disabled>
+
+            <br>
+
+            <label for="testResult" class="form-label u-trace-green">Result:</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="testResult" value="true" id="positive" required disabled>
+                <label class="form-check-label" style="margin-right: 3em;" for="positive">
+                    Positive
+                </label>
+                <input class="form-check-input" type="radio" name="testResult" value="false" id="negative" disabled>
+                <label class="form-check-label" for="negative">
+                    Negative
+                </label>
+            </div>
+
+        </div>
+        <div class="flex-child">
+
+            <label for="facility" class="form-label u-trace-green">Facility:</label>
+            <input type="text" class="form-control" id="facility" name="facility" disabled>
+
+            <br>
+
+            <label for="method" class="form-label u-trace-green">Method:</label>
+            <select class="form-select" aria-label="Default select example" id="method" name="method" disabled required>
+                <option selected disabled value="">select a method</option>
+                {{#each methods}}
+                    <option value = "{{this.methodID}}">{{this.methodName}}</option>
+                    
+                {{/each}}
+            </select>
+
+            <br>
+
+            <button id="testBtn" type ="submit" class="button" disabled> <span>Add New Test Result</span></button>
+
+        </div>
+    </div>
+
+    <div class="flex-container" style="margin-top:0.3em;"><div class="flex-childv2 dashboard-header">User's Test History</div></div> 
+
+    <div class="flex-container">
+        <div class="flex-child" id="testHistory">
+            <span id="userName" style="font-size:small;"></span> <br>
+            <span id="userAddress" style="font-size:small;"></span> <br>
+            <label id="testHistoryHeader"class="form-label u-trace-green" style="font-size:small;" hidden>Test History:</label>
+            <table id="testHistoryTable" class="table table-bordered table-sm" style="margin-top:1em;" hidden>
+            <thead class="table-light">
+                <tr>
+                <th scope="col">Test ID</th>
+                <th scope="col">Date</th>
+                <th scope="col">Facility</th>
+                <th scope="col">Testing Method</th>
+                <th scope="col">Result</th>
+                </tr>
+            </thead>
+            <tbody id="testHistoryBody">
+            </tbody>
+            </table>
+        </div>        
+    </div>
+    </form>
+        <div class="flex-container">
+        <div class="flex-child" style="flex: 0.5;">
+            <button id="saveAsPDF" type="button" class="edit-button" style="width:10em; margin-bottom:1em;" hidden><span>Download As PDF</span></button>
+        </div>
+    </div>
+
+
+    <!--- Locals: JS --->
+    <script src="../public/scripts/userTestInfo.js"></script>
+    <!--- Bootstrap 5: JS Dependencies --->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../node_modules/mdbootstrap/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../node_modules/mdbootstrap/js/popper.min.js" type="text/javascript"></script>
+    <script src="../node_modules/mdbootstrap/js/bootstrap.min.js" type="text/javascript" ></script>
+    <script src="../node_modules/mdbootstrap/js/mdb.min.js" type="text/javascript"></script>
+    <!--- Ajax Dependencies --->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script type='text/javascript' rel='js/handlebars-v4.0.5.js'></script>
+</body>
+</html>

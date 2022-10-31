@@ -1,0 +1,476 @@
+*{
+font-family: 'Roboto', sans-serif;
+text-decoration: none !important
+}
+
+/* fixed */
+
+.nav_name {
+    font-weight: bold;
+}
+
+.header-primary {
+    margin-top: 2.7em;
+    color: #2A8348;
+    margin-bottom: 0.2em;
+}
+
+.header-secondary {
+    margin-top: 0em;
+    color: #2A8348;
+    margin-right: 0.6em;
+    display: inline-block;
+    font-size: small;
+}
+
+.big-num{
+    font-weight: bold;
+    font-size: 3em;
+    display: block;
+    color: #2A8348;
+    margin-bottom: 0em;
+    position: absolute;
+
+}
+
+.big-num-accompany{
+    margin-left: 0.85em;
+    margin-top: 0em;
+    color: #2A8348;
+    display: block;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.button-header{
+    display:inline-block;
+    margin-top: 1em;
+    margin-left: 1em;
+    color: #2A8348;
+    font-weight: bold;
+}
+
+.accordion{
+    --nav-width: default;
+    width: 99%;
+}
+
+.accordion-spacer-big{
+    display:inline-block;
+    width: 160px;
+}
+
+.accordion-spacer-massive{
+    display:inline-block;
+    width: 300px;
+}
+.accordion-spacer-small{
+    display:inline-block;
+    width: 75px;
+}
+
+#tableSearch{
+    width: 99%;
+}
+
+/* ***** */
+.modal-s {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+  
+/* Modal Content */
+.modal-content-s {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border-radius: 25px;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+  
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+  
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+  
+.close:hover, .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+  
+/* FOR ADMIN PROFILE */
+
+.modal-header-f {
+    vertical-align: middle;
+    padding-top:10px;
+    padding-left:1em;
+    padding-right:1em;
+    padding-bottom:1px;
+    background-color: #bb3e2e;
+    color: white;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;  
+}
+
+/* ***************** */
+  
+.modal-header-s {
+    vertical-align: middle;
+    padding-top:10px;
+    padding-left:1em;
+    padding-right:1em;
+    padding-bottom:1px;
+    background-color: #5cb85c;
+    color: white;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;  
+}
+  
+.modal-body-s {
+    padding: 2px 16px;
+    padding-top: 1em;
+}
+
+/* The alert message box */
+.alert {
+    padding: 20px;
+    background-color: #56c752;
+    color: white;
+    margin-bottom: 15px;
+    opacity: 1;
+    transition: opacity 0.6s; /* 600ms to fade out */
+  }
+  
+  /* The close button */
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  /* When moving the mouse over the close button */
+  .closebtn:hover {
+    color: black;
+  }
+
+#header {
+    background-color: #27bd59;
+}
+
+.u-trace-white {
+    color:#FFFFF6;
+    margin-bottom: 0em;
+}
+
+.u-trace-green {
+    color:#2A8348;
+}
+
+#container {
+    height: 94%;
+    width: 100%;
+    align-items: center;
+}
+  
+.flex-container {
+    margin-top: 1em;
+    display: flex;
+}
+
+.flex-child {
+    background-color: whitesmoke;
+    color: #2A8348;
+    flex: 5;
+    margin-right: 1em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    align-items: center;
+    text-align: center;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    -webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow:inset 0 1px 1px rgba(0, 0, 0, 0.05)
+}
+
+.sen {
+    margin:1em;
+    height: 100%;
+}
+
+.clicked {
+    background-color: #27bd59;
+}
+
+.sub {
+    color: #2A8348;
+    display: inline-block;
+    margin-top: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+/* BUTTON */
+.button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #2A8348;
+    border: none;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 15px;
+    padding: 1em;
+    width: 16em;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-top:1em;
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.1s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+
+
+/* BOOTSTRAP - SIDEBAR */
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+
+:root {
+    --header-height: 3rem;
+    --nav-width: 68px;
+    --first-color: #2A8348;
+    --first-color-light: #1e3a27;
+    --white-color: #FFFFF6;
+    --body-font: 'Nunito', sans-serif;
+    --normal-font-size: 1rem;
+    --z-fixed: 100
+}
+
+*,
+::before,
+::after {
+    box-sizing: border-box
+}
+
+body {
+    position: relative;
+    margin: var(--header-height) 0 0 0;
+    padding: 0 1rem;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    transition: .5s;
+}
+
+a {
+    text-decoration: none
+}
+
+.header {
+    width: 100%;
+    height: var(--header-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    background-color: var(--white-color);
+    z-index: var(--z-fixed);
+    transition: .5s
+}
+
+.header_toggle {
+    color: var(--first-color);
+    font-size: 1.5rem;
+    cursor: pointer
+}
+
+.header_img {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden
+}
+
+.header_img img {
+    width: 40px
+}
+
+.l-navbar {
+    position: fixed;
+    top: 0;
+    left: -30%;
+    width: var(--nav-width);
+    height: 100vh;
+    background-color: var(--first-color);
+    padding: .5rem 1rem 0 0;
+    transition: .5s;
+    z-index: var(--z-fixed)
+}
+
+.nav {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden
+}
+
+.nav_logo,
+.nav_link {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    align-items: center;
+    column-gap: 1rem;
+    padding: .5rem 0 .5rem 1.5rem
+}
+
+.nav_logo {
+    margin-bottom: 2rem
+}
+
+.nav_logo-icon {
+    font-size: 1.25rem;
+    color: var(--white-color)
+}
+
+.nav_logo-name {
+    color: var(--white-color);
+    font-weight: 700
+}
+
+.nav_link {
+    position: relative;
+    color: var(--first-color-light);
+    margin-bottom: 1.5rem;
+    transition: .3s
+}
+
+.nav_link:hover {
+    color: var(--white-color)
+}
+
+.nav_icon {
+    font-size: 1.25rem
+}
+
+.show {
+    left: 0
+}
+
+.body-pd {
+    padding-left: calc(var(--nav-width) + 1rem)
+}
+
+.active {
+    color: var(--white-color)
+}
+
+.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 2px;
+    height: 32px;
+    background-color: var(--white-color)
+}
+
+.height-100 {
+    height: 100vh
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        margin: calc(var(--header-height) + 1rem) 0 0 0;
+        padding-left: calc(var(--nav-width) + 2rem)
+    }
+
+    .header {
+        height: calc(var(--header-height) + 1rem);
+        padding: 0 2rem 0 calc(var(--nav-width) + 2rem)
+    }
+
+    .header_img {
+        width: 40px;
+        height: 40px
+    }
+
+    .header_img img {
+        width: 45px
+    }
+
+    .l-navbar {
+        left: 0;
+        padding: 1rem 1rem 0 0
+    }
+
+    .show {
+        width: calc(var(--nav-width) + 156px)
+    }
+
+    .body-pd {
+        padding-left: calc(var(--nav-width) + 188px)
+    }
+}
